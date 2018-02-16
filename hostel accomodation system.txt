@@ -1,0 +1,147 @@
+#include <stdio.h>
+#include <conio.h>
+#include<string.h>
+struct hos
+{ char name[20];
+ int phno;
+ char address[50];
+ char fathername[50];
+ char sex;
+ char bloodgroup[5];
+ int registrationno;
+ }s[100];
+void view();
+void search();
+void delete();
+void add();
+void menu()
+{ int ch;
+ clrscr();
+printf("\n=");
+printf("\n *
+*");
+printf("\n * WELCOME TO HOSTEL
+MANAGEMENT SYSTEM *");
+printf("\n *
+*");
+printf("\n");
+printf("\n\n\tWELCOME TO ABC HOSTEL ");
+printf("\n\n\t1.ADD NEW STUDENT");
+printf("\n\n\t2.SEARCH STUDENT INFORMATION");
+printf("\n\n\t3.REMOVE STUDENT");
+1
+printf("\n\n\t4.exit ");
+printf("\n\n\tEnter your choice(1,2,3or4)");
+scanf("%d",&ch);
+switch(ch)
+{ case 1: add();
+ getch();
+ menu();
+ break;
+ case 2: search();
+ getch();
+ menu();
+ break;
+ case 3:delete();
+ getch();
+ menu();
+ break;
+ case 4:exit();
+ break;
+}}
+void search()
+{int i,regno;
+ char ch;
+ clrscr();
+printf("\nEnter the regno no");
+scanf("%d",&regno);
+for(i=0;i<100;i++)
+ if(regno==s[i].registrationno)
+ { printf("\n!!!!!!!!RECORD FOUND!!!!!!!!!");
+ printf("\n!NAME:");
+ printf(s[i].name);
+ fflush(stdin);
+ //printf("\nPHONE NO:");
+ //printf(s[i].phno);
+ fflush(stdin);
+ printf("\nBLOOD GROUP:");
+ fflush(stdin);
+
+ printf(s[i].bloodgroup);
+ fflush(stdin);
+ printf("\nFATHER NAME:");
+ fflush(stdin);
+ printf(s[i].fathername);
+ printf("\nADDRESS:");
+ printf(s[i].address);
+ fflush(stdin);
+ i=100;
+ }
+ else
+ {printf("\nregistration no not matched");
+ getch();
+ menu();
+}}
+void add()
+{char ch;
+ int i;
+ clrscr();
+// printf("how much record you want to enter");
+ for( i=0;i<2;i++)
+ {
+ printf("\nEnter the name:");
+ scanf("%s",&s[i].name);
+ fflush(stdin);
+ printf("\nEnter the father's name:");
+ scanf("%d",&s[i].fathername);
+ fflush(stdin);
+ printf("\nEnter the sex:");
+ scanf("%d",&s[i].sex);
+ fflush(stdin);
+ printf("\nEnter the phone number:");
+ scanf("%d",&s[i].phno);
+ fflush(stdin);
+ printf("\nEnter the address:");
+scanf("%s",&s[i].address);
+ fflush(stdin);
+ printf("\n\Enter the blood group:");
+ scanf("%d",&s[i].bloodgroup);
+ fflush(stdin);
+ printf("\nEnter the registration no:");
+ scanf("%d",&s[i].registrationno);
+ fflush(stdin);
+ printf("\nDo you want to add more record");
+ scanf("%c",&ch);
+ if(ch!='y')
+ goto xy;
+ xy:break;
+ }
+}
+void delete()
+{int i, regno;
+ char ch;
+ clrscr();
+Printf ("enter the regno no");
+Scanf ("%d",&regno);
+for (i=0;i<100;i++)
+ if(regno==s[i].registrationno)
+ { printf("\nAre you sure you want to delete
+this record(y or n)");
+ scanf("%c",&ch);
+ if(ch=='y')
+ printf("\nyour record is deleted");
+ getch();
+ menu();
+ }
+ else
+ {printf("registration no not matched");
+ getch();
+ menu();
+}}
+
+void main()
+{
+clrscr();
+getch();
+menu();
+ }
